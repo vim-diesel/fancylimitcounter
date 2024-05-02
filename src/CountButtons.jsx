@@ -1,7 +1,7 @@
 import { MinusIcon, PlusIcon } from '@radix-ui/react-icons';
 import styled from 'styled-components';
 
-export default function CountButtons({ setCount }) {
+export default function CountButtons({ setCount, locked }) {
   // Prevent our count from going below 0
   const handleMinusClick = () => {
     setCount((prev) => {
@@ -15,10 +15,10 @@ export default function CountButtons({ setCount }) {
 
   return (
     <ButtonWrapper>
-      <CountButton onClick={handleMinusClick}>
+      <CountButton disabled={locked} onClick={handleMinusClick}>
         <StyledMinusIcon />
       </CountButton>
-      <CountButton onClick={() => setCount((prev) => prev + 1)}>
+      <CountButton disabled={locked} onClick={() => setCount((prev) => prev + 1)}>
         <StyledPlusIcon />
       </CountButton>
     </ButtonWrapper>
@@ -46,8 +46,6 @@ const ButtonWrapper = styled.div`
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   display: flex;
-  position: absolute;
-  bottom: 0;
 `;
 
 const CountButton = styled.button`

@@ -9,8 +9,6 @@ const CountText = styled.p`
   font-size: 200px;
   font-weight: 600;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
+  margin-top: 10px;
   line-height: 1;
 `;

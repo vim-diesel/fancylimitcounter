@@ -8,29 +8,37 @@ import ResetButtons from './ResetButtons';
 export default function Card() {
   const [count, setCount] = React.useState(0);
 
+  // If the User reaches 5 counts, the app locks until they reset
+  const locked = count === 5 ? true : false;
+
   return (
-    <CardSection>
-      <CardTitle>Limited Counter</CardTitle>
+    // CardSection does not have its own file, it is just a styled div, but we 
+    // need the locked prop to style it correctly
+    <CardSection locked={locked}>
+      {locked ? (
+        <CardTitle>Locked! Buy Pro to keep counting!</CardTitle>
+      ) : (
+        <CardTitle>Fancy Counter</CardTitle>
+      )}
       <Count count={count} />
-      <ResetButtons setCount={setCount}/>
-      <CountButtons setCount={setCount} />
+      <ResetButtons setCount={setCount} />
+      <CountButtons locked={locked} setCount={setCount} />
     </CardSection>
   );
 }
 
 const CardSection = styled.div`
-  background-color: #bef227;
+  background-color: ${props => props.locked ? '#a3d11b' : '#bef227'};
   width: 476px;
-  height: 55%;
+  height: 65%;
   border-radius: 12px;
   box-shadow: 0 25px 121px rgba(0, 0, 0, 0.5);
-  margin: auto;
   padding-top: 24px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   right: 0px;
+  transition: 0.4s;
 `;
 
 const CardTitle = styled.h1`
@@ -38,9 +46,9 @@ const CardTitle = styled.h1`
   text-transform: uppercase;
   letter-spacing: 1px;
   width: 200px;
-  margin: auto;
   text-align: center;
   line-height: 0.9;
   font-weight: 500;
   font-size: 32px;
 `;
+
