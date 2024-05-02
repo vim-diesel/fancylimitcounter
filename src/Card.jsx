@@ -17,7 +17,7 @@ export default function Card() {
     const handleKeydown = (event) => {
       if (event.code === "Space") {
         const newCount = count + 1;
-        if (newCount > 5) {
+        if (locked) {
           setCount(5);
           return;
         }
@@ -30,7 +30,7 @@ export default function Card() {
     return () => {
       window.removeEventListener("keydown", handleKeydown);
     };
-  }, [count]);
+  }, [count, locked]);
 
 
   return (

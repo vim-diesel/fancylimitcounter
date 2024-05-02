@@ -3,7 +3,14 @@ import styled from 'styled-components';
 
 export default function ResetButtons({ setCount }) {
   return (
-    <ResetButton onClick={() => setCount(0)}>
+    <ResetButton
+      onClick={(event) => {
+        setCount(0);
+
+        // Erase focus so we can use spacebar without pressing it again
+        event.currentTarget.blur();
+      }}
+    >
       <StyledResetIcon />
     </ResetButton>
   );

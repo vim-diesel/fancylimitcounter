@@ -2,8 +2,9 @@ import { MinusIcon, PlusIcon } from '@radix-ui/react-icons';
 import styled from 'styled-components';
 
 export default function CountButtons({ setCount, locked }) {
+
   // Prevent our count from going below 0
-  const handleMinusClick = () => {
+  const handleMinusClick = (event) => {
     setCount((prev) => {
       const newCount = prev - 1;
       if (newCount < 0) {
@@ -11,6 +12,16 @@ export default function CountButtons({ setCount, locked }) {
       }
       return newCount;
     });
+
+    // Erase focus so we can use spacebar without pressing it again
+    event.currentTarget.blur();
+  };
+
+  const handlePlusClick = (event) => {
+    setCount((prev) => prev + 1);
+
+    // Erase focus so we can use spacebar without pressing it again
+    event.currentTarget.blur();
   };
 
   return (
@@ -18,26 +29,12 @@ export default function CountButtons({ setCount, locked }) {
       <CountButton disabled={locked} onClick={handleMinusClick}>
         <StyledMinusIcon />
       </CountButton>
-      <CountButton disabled={locked} onClick={() => setCount((prev) => prev + 1)}>
+      <CountButton disabled={locked} onClick={handlePlusClick}>
         <StyledPlusIcon />
       </CountButton>
     </ButtonWrapper>
   );
 }
-
-const StyledMinusIcon = styled(MinusIcon)`
-  color: #bdfe00;
-  opacity: 0.9;
-  height: 40px;
-  width: 40px;
-`;
-
-const StyledPlusIcon = styled(PlusIcon)`
-  color: #bdfe00;
-  opacity: 0.9;
-  height: 40px;
-  width: 40px;
-`;
 
 const ButtonWrapper = styled.div`
   background-color: #1d2507;
@@ -65,4 +62,18 @@ const CountButton = styled.button`
   &:first-child {
     border-right: 1px solid rgba(189, 254, 0, 0.07);
   }
+`;
+
+const StyledMinusIcon = styled(MinusIcon)`
+  color: #bdfe00;
+  opacity: 0.9;
+  height: 40px;
+  width: 40px;
+`;
+
+const StyledPlusIcon = styled(PlusIcon)`
+  color: #bdfe00;
+  opacity: 0.9;
+  height: 40px;
+  width: 40px;
 `;
