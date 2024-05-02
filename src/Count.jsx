@@ -8,7 +8,6 @@ const CountText = styled.p`
   color: #1d2507;
   font-size: 200px;
   font-weight: 600;
-  width: fit-content;
-  margin-top: 10px;
   line-height: 1;
+  margin-top: auto;
 `;

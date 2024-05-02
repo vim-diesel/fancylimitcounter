@@ -43,6 +43,7 @@ const ButtonWrapper = styled.div`
   background-color: #1d2507;
   height: 116px;
   width: 100%;
+  margin-top: auto;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   display: flex;
