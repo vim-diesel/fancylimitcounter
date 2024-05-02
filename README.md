@@ -17,27 +17,27 @@ To run the FancyLimitCounter application, follow these steps:
 
 1. **Clone the Repository**: Clone this repository to your local machine.
 
-   ````shell
+   ```shell
    git clone https://github.com/vim-diesel/fancylimitcounter.git
-   cd fancylimitcounter```
+   cd fancylimitcounter
 
-   ````
+   ```
 
 2. **Install Dependencies**: Install the necessary dependencies using npm or yarn.
 
-   ````shell
+   ```shell
    npm install
    # or
-   yarn```
+   yarn
 
-   ````
+   ```
 
 3. **Run the Application**: Start the development server to run the application.
 
-   ````shell
+   ```shell
     npm run dev
     # or
-    yarn dev```
-   ````
+    yarn dev
+   ```
 
 4. **Open in Browser**: Open the application in your browser at `http://localhost:5173`.
