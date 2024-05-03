@@ -12,6 +12,7 @@ This project serves no useful purpose beyond demonstrating the use of React, Vit
 - **Increment and Decrement**: Adjust counter values within specified limits.
 - **Vite-Powered**: Uses Vite for a fast development server and build tool.
 - **React**: Built using React for a modern, component-based architecture.
+- **Styled-Components**: Using styled-components to encourage good habits. It solves whole classes of CSS problems for us, like scoping and specificity.
 
 ## Getting Started
 
