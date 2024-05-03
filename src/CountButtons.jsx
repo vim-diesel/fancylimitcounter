@@ -2,7 +2,6 @@ import { MinusIcon, PlusIcon } from '@radix-ui/react-icons';
 import styled from 'styled-components';
 
 export default function CountButtons({ setCount, locked }) {
-
   // Prevent our count from going below 0
   const handleMinusClick = (event) => {
     setCount((prev) => {
@@ -14,7 +13,14 @@ export default function CountButtons({ setCount, locked }) {
     });
 
     // Erase focus so we can use spacebar without pressing it again
-    event.currentTarget.blur();
+    // event.currentTarget.blur();
+
+    // Alternatively, use this code on the component:
+    // onKeyDown={(event) => {
+    //  if (event.code === 'Space') {
+    //     event.stopPropagation();
+    //   }
+    // }}
   };
 
   const handlePlusClick = (event) => {
@@ -26,7 +32,15 @@ export default function CountButtons({ setCount, locked }) {
 
   return (
     <ButtonWrapper>
-      <CountButton disabled={locked} onClick={handleMinusClick}>
+      <CountButton
+        disabled={locked}
+        onClick={handleMinusClick}
+        onKeyDown={(event) => {
+          if (event.code === 'Space') {
+            event.stopPropagation();
+          }
+        }}
+      >
         <StyledMinusIcon />
       </CountButton>
       <CountButton disabled={locked} onClick={handlePlusClick}>
