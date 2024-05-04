@@ -6,6 +6,8 @@ For managing styling we use <💅🏽>styled-components
 
 This project serves no useful purpose beyond demonstrating the use of React, Vite, and Styled-Components in a simple application. It is intended as a learning resource for developers who are new to React or Vite.
 
+Check it out at [https://fancylimitcounter.vercel.app](https://fancylimitcounter.vercel.app)
+
 ## Features
 
 - **Custom Limits**: Set upper and lower limits for counters.
